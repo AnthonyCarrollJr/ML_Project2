@@ -124,6 +124,7 @@ scipy==1.18.0
 Send2Trash==2.1.0
 setuptools==83.0.0
 six==1.17.0
+skorch==1.4.0
 soundfile==0.14.0
 soupsieve==2.9.1
 soxr==1.1.0
@@ -132,12 +133,14 @@ standard-aifc==3.13.0
 standard-chunk==3.13.0
 standard-sunau==3.13.0
 sympy==1.14.0
+tabulate==0.10.0
 terminado==0.18.1
 threadpoolctl==3.6.0
 tinycss2==1.5.1
 torch==2.13.0
 torchaudio==2.11.0
 tornado==6.5.7
+tqdm==4.70.0
 traitlets==5.15.1
 triton==3.7.1
 typing_extensions==4.16.0
