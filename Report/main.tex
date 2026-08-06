@@ -1,0 +1,197 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{url}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Machine Learning Classification of Heart and Lung Sound Recordings}
+
+\author{
+\IEEEauthorblockN{Miguel Diaz-Alvarez, Jordan Mckoy, and AJ Carroll}
+\IEEEauthorblockA{
+\textit{Department of Electrical and Computer Engineering}\\
+\textit{University of North Carolina at Charlotte}\\
+Charlotte, NC, USA}
+}
+
+\maketitle
+
+\begin{abstract}
+This report presents a machine learning approach for classifying heart, lung,
+and mixed audio recordings. The project uses the HLS-CMDS dataset, which
+contains separate heart sound recordings, lung sound recordings, and mixed
+heart/lung recordings. The workflow includes audio preprocessing, feature
+extraction, model training, hyperparameter tuning, and performance evaluation.
+The final model is evaluated using classification metrics such as accuracy,
+precision, recall, F1-score, and confusion matrices. Replace this paragraph
+with a concise summary of the completed method, best result, and main finding.
+\end{abstract}
+
+\begin{IEEEkeywords}
+machine learning, audio classification, heart sounds, lung sounds, feature
+extraction, neural networks
+\end{IEEEkeywords}
+
+\section{Introduction}
+The goal of this project is to classify biomedical audio recordings into
+meaningful sound categories using machine learning. Heart and lung sounds are
+clinically important signals, and automated classification can support faster
+screening, data organization, and diagnostic decision support.
+
+Briefly introduce the problem, why it matters, and what this project attempts
+to solve. End the section with a short summary of the main contributions, such
+as:
+
+\begin{itemize}
+    \item preprocessing and organizing the HLS-CMDS audio dataset;
+    \item extracting useful audio features for classification;
+    \item training and comparing machine learning models;
+    \item evaluating model performance using standard classification metrics.
+\end{itemize}
+
+\section{Dataset}
+The dataset used in this project is the HLS-CMDS dataset. It contains heart
+sound recordings, lung sound recordings, and mixed heart/lung recordings. The
+project directory is organized into the HS, LS, and Mix subsets.
+
+\begin{table}[htbp]
+\caption{Dataset Summary}
+\begin{center}
+\begin{tabular}{lcc}
+\hline
+\textbf{Subset} & \textbf{Description} & \textbf{Recordings} \\
+\hline
+HS & Heart sound recordings & 50 \\
+LS & Lung sound recordings & 50 \\
+Mix & Mixed heart/lung recordings & 435 \\
+\hline
+\end{tabular}
+\label{tab:dataset-summary}
+\end{center}
+\end{table}
+
+Describe the source of the data, the class labels, the number of samples per
+class, and any relevant characteristics of the audio files, such as sampling
+rate, duration, or class imbalance.
+
+\section{Preprocessing and Feature Extraction}
+Before model training, the audio recordings were preprocessed to produce a
+consistent input representation. This section should describe the steps used to
+clean, normalize, transform, or segment the audio data.
+
+Possible preprocessing steps include:
+
+\begin{itemize}
+    \item loading waveform files and labels;
+    \item resampling audio to a consistent sampling rate;
+    \item trimming or padding recordings to a fixed length;
+    \item normalizing signal amplitude;
+    \item converting audio into features such as MFCCs, spectrograms, or
+    Mel-spectrograms.
+\end{itemize}
+
+If feature extraction was used, include the feature dimensions and explain why
+those features are appropriate for this classification task.
+
+\section{Methodology}
+This section describes the machine learning models and training procedure used
+for the project. Include enough detail for another person to reproduce the
+experiment.
+
+\subsection{Model Architecture}
+Describe the model or models tested. For example, if a convolutional neural
+network was used, describe the convolutional layers, activation functions,
+pooling layers, fully connected layers, dropout, and output layer.
+
+\subsection{Training Procedure}
+Describe the train-validation-test split, loss function, optimizer, learning
+rate, batch size, number of epochs, and any hyperparameter tuning strategy.
+
+\subsection{Evaluation Metrics}
+The trained models were evaluated using standard classification metrics:
+
+\begin{itemize}
+    \item accuracy;
+    \item precision;
+    \item recall;
+    \item F1-score;
+    \item confusion matrix.
+\end{itemize}
+
+\section{Results}
+Present the main experimental results in this section. Include a table comparing
+the tested models or configurations.
+
+\begin{table}[htbp]
+\caption{Model Performance Comparison}
+\begin{center}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Model} & \textbf{Accuracy} & \textbf{Precision} &
+\textbf{Recall} & \textbf{F1-score} \\
+\hline
+Baseline model & TODO & TODO & TODO & TODO \\
+Tuned model & TODO & TODO & TODO & TODO \\
+Final model & TODO & TODO & TODO & TODO \\
+\hline
+\end{tabular}
+\label{tab:model-results}
+\end{center}
+\end{table}
+
+Add the most important figures here, such as a confusion matrix, training loss
+curve, validation accuracy curve, or feature visualization.
+
+\begin{figure}[htbp]
+\centerline{%
+\IfFileExists{figures/confusion_matrix.png}
+{\includegraphics[width=0.45\textwidth]{figures/confusion_matrix.png}}
+{\fbox{\parbox[c][1.25in][c]{0.42\textwidth}{\centering Upload
+\texttt{figures/confusion\_matrix.png} or replace this placeholder.}}}}
+\caption{Confusion matrix for the final classification model. Replace the image
+path with the exported figure from the project.}
+\label{fig:confusion-matrix}
+\end{figure}
+
+\section{Discussion}
+Discuss what the results mean. Explain which model performed best, which
+classes were easiest or hardest to classify, and whether the results suggest
+overfitting, underfitting, or good generalization.
+
+Also describe limitations of the project, such as dataset size, class imbalance,
+audio quality, limited hyperparameter search, or constraints in preprocessing.
+
+\section{Conclusion}
+This project developed a machine learning pipeline for classifying heart, lung,
+and mixed audio recordings. Summarize the final model, the best performance
+achieved, and the main lesson learned from the project. End with possible future
+work, such as collecting more data, improving feature extraction, testing deeper
+models, or deploying the model in an application.
+
+\section*{Acknowledgment}
+Optional: thank the instructor, course staff, dataset providers, or teammates.
+Delete this section if it is not needed.
+
+\begin{thebibliography}{00}
+\bibitem{b1} I. Goodfellow, Y. Bengio, and A. Courville, \textit{Deep Learning}.
+Cambridge, MA, USA: MIT Press, 2016.
+
+\bibitem{b2} B. McFee et al., ``librosa: Audio and music signal analysis in
+Python,'' in \textit{Proc. 14th Python in Science Conf.}, 2015, pp. 18--25.
+
+\bibitem{b3} F. Chollet et al., ``Keras,'' 2015. [Online]. Available:
+\url{https://keras.io}
+
+\bibitem{b4} A. Paszke et al., ``PyTorch: An imperative style, high-performance
+deep learning library,'' in \textit{Advances in Neural Information Processing
+Systems}, vol. 32, 2019.
+\end{thebibliography}
+
+\end{document}
