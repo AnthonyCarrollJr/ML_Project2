@@ -11,7 +11,7 @@
 
 \begin{document}
 
-\title{Machine Learning Classification of Heart and Lung Sound Recordings}
+\title{Machine Learning Classification of Lung Sound Recordings}
 
 \author{
 \IEEEauthorblockN{Miguel Diaz-Alvarez, Jordan Mckoy, and AJ Carroll}
@@ -24,14 +24,11 @@ Charlotte, NC, USA}
 \maketitle
 
 \begin{abstract}
-This report presents a machine learning approach for classifying heart, lung,
-and mixed audio recordings. The project uses the HLS-CMDS dataset, which
+This report describes a machine learning methodology for classifying lung recordings.
+The study utilizes the HLS-CMDS dataset, which includes separate heart sound recordings, lung sound recordings, and mixed heart/lung recordings.
 contains separate heart sound recordings, lung sound recordings, and mixed
-heart/lung recordings. The workflow includes audio preprocessing, feature
-extraction, model training, hyperparameter tuning, and performance evaluation.
-The final model is evaluated using classification metrics such as accuracy,
-precision, recall, F1-score, and confusion matrices. Replace this paragraph
-with a concise summary of the completed method, best result, and main finding.
+The workflow consists of audio preprocessing, feature extraction, model training, and parameter tuning.
+extraction, model training, and parameter tuning, which were done simultaneously using grid search. The best model from grid search was chosen based on the accuracy. Then a comparison of a multi-layer perceptron (MLP) and a convolutional neural network (CNN) was done using macro (average) metrics. MLP beat CNN on all metrics.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -40,14 +37,7 @@ extraction, neural networks
 \end{IEEEkeywords}
 
 \section{Introduction}
-The goal of this project is to classify biomedical audio recordings into
-meaningful sound categories using machine learning. Heart and lung sounds are
-clinically important signals, and automated classification can support faster
-screening, data organization, and diagnostic decision support.
-
-Briefly introduce the problem, why it matters, and what this project attempts
-to solve. End the section with a short summary of the main contributions, such
-as:
+The objective of this project is to classify biomedical audio recordings into clinically relevant sound categories using machine learning techniques. Lung sounds are critical diagnostic signals, and automated classification can facilitate rapid screening, efficient data organization, and enhanced diagnostic decision support. This report addresses the challenges associated with accurate classification and summarizes the primary contributions of the study.
 
 \begin{itemize}
     \item preprocessing and organizing the HLS-CMDS audio dataset;
@@ -57,20 +47,22 @@ as:
 \end{itemize}
 
 \section{Dataset}
-The dataset used in this project is the HLS-CMDS dataset. It contains heart
-sound recordings, lung sound recordings, and mixed heart/lung recordings. The
-project directory is organized into the HS, LS, and Mix subsets.
-
+The dataset utilized for this study is derived from the HLS-CMDS dataset, which is organized into HS, LS, and Mix subsets. This analysis focused exclusively on the lung sound recordings from the LS and Mix subsets. In the mixed dataset, 45 lung sounds were shared across all mixed recordings. To eliminate duplicate sounds, a hash string was generated for each recording using the message-digest algorithm (MD5). Each hash string served as a unique fingerprint for its corresponding recording. These fingerprints were used to identify and remove duplicates. Following this process, 94 unique lung sound recordings remained across six classes.
 \begin{table}[htbp]
-\caption{Dataset Summary}
+\caption{Lung Sound Class Distribution}
 \begin{center}
-\begin{tabular}{lcc}
+\begin{tabular}{lc}
 \hline
-\textbf{Subset} & \textbf{Description} & \textbf{Recordings} \\
+\textbf{Label} & \textbf{Recordings} \\
 \hline
-HS & Heart sound recordings & 50 \\
-LS & Lung sound recordings & 50 \\
-Mix & Mixed heart/lung recordings & 435 \\
+Pleural Rub & 18 \\
+Rhonchi & 17 \\
+Coarse Crackles & 16 \\
+Normal & 16 \\
+Wheezing & 14 \\
+Fine Crackles & 13 \\
+\hline
+\textbf{Total} & \textbf{94} \\
 \hline
 \end{tabular}
 \label{tab:dataset-summary}
@@ -169,8 +161,8 @@ Also describe limitations of the project, such as dataset size, class imbalance,
 audio quality, limited hyperparameter search, or constraints in preprocessing.
 
 \section{Conclusion}
-This project developed a machine learning pipeline for classifying heart, lung,
-and mixed audio recordings. Summarize the final model, the best performance
+This project developed a machine learning pipeline for classifying lung sound
+audio recordings. Summarize the final model, the best performance
 achieved, and the main lesson learned from the project. End with possible future
 work, such as collecting more data, improving feature extraction, testing deeper
 models, or deploying the model in an application.
